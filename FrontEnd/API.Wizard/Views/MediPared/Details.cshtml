@@ -1,0 +1,42 @@
+﻿@model API.Wizard.Models.MediPared
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalle</h1>
+
+<div>
+    <h4>Medidas de la Pared</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Alto
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Alto)
+        </dd>
+        <dt class="col-sm-2">
+            Ancho
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ancho)
+        </dd>
+        <dt class="col-sm-2">
+            Metro Cuadrado
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetroCuadrado)
+        </dd>
+        <dt class="col-sm-2">
+            ID Paredes
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdMedParedesNavigation.IdMedParedes)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdMedPared">Editar</a> |
+    <a asp-action="Index">Volver a la Lista</a>
+</div>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<API.Wizard.Models.Provincia>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Listado de Provincias</h1>
+
+<p>
+    <a asp-action="Create">Crear Nueva</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Provincia
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreProvincia)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CodigoProvincia">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.CodigoProvincia">Detalle</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CodigoProvincia">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

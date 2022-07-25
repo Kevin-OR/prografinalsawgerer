@@ -1,0 +1,47 @@
+﻿@model API.Wizard.Models.ListCal
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Lista de Cálculo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdCalculo" />
+            <div class="form-group">
+                <label asp-for="NombreCalculo" class="control-label">Nombre de Cálculo</label>
+                <input asp-for="NombreCalculo" class="form-control" />
+                <span asp-validation-for="NombreCalculo" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="IdClie" class="control-label">Cliente</label>
+                <select asp-for="IdClie" class="form-control" asp-items="ViewBag.IdClie"></select>
+                <span asp-validation-for="IdClie" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="IdPer" class="control-label">Persona</label>
+                <select asp-for="IdPer" class="form-control" asp-items="ViewBag.IdPer"></select>
+                <span asp-validation-for="IdPer" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Volver a la Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

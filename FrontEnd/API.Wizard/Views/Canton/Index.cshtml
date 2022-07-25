@@ -1,0 +1,42 @@
+﻿@model IEnumerable<API.Wizard.Models.Canton>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Listado de Cantones</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Código Provincia
+            </th>
+            <th>
+                Nombre de Cantón
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreCanton)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoProvinciaNavigation.NombreProvincia)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CodigoCanton">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.CodigoCanton">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CodigoCanton">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,50 @@
+﻿@model API.Wizard.Models.CalculoMateri
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear Nuevo</h1>
+
+<h4>Calculo Materiales</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="IdCalculo" class="control-label">Nombre Cálculo</label>
+                <select asp-for="IdCalculo" class="form-control" asp-items="ViewBag.IdCalculo"></select>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="IdMaterial" class="control-label">Material</label>
+                <select asp-for="IdMaterial" class="form-control" asp-items="ViewBag.IdMaterial"></select>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="IdMedParedes" class="control-label"> ID Paredes</label>
+                <select asp-for="IdMedParedes" class="form-control" asp-items="ViewBag.IdMedParedes"></select>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="TotalCalculo" class="control-label">Total Cálculo</label>
+                <input asp-for="TotalCalculo" class="form-control" />
+                <span asp-validation-for="TotalCalculo" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<API.Wizard.Models.MediPared>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Alto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ancho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetroCuadrado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMedParedesNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ancho)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MetroCuadrado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdMedParedesNavigation.IdMedParedes)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdMedPared">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdMedPared">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdMedPared">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

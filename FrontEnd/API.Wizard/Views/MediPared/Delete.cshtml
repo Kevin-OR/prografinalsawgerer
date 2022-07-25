@@ -1,0 +1,45 @@
+﻿@model API.Wizard.Models.MediPared
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Seguro que desea eliminar las medidas de la pared?</h3>
+<div>
+    <h4>Medidas de la Pared</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Alto
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Alto)
+        </dd>
+        <dt class="col-sm-2">
+            Ancho
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ancho)
+        </dd>
+        <dt class="col-sm-2">
+            Metro Cuadrado
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetroCuadrado)
+        </dd>
+        <dt class="col-sm-2">
+            ID Paredes
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdMedParedesNavigation.IdMedParedes)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdMedPared" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver a la Lista</a>
+    </form>
+</div>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<API.Wizard.Models.MediParedes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Medidas de Paredes</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Total Alto
+            </th>
+            <th>
+                Total Ancho
+            </th>
+            <th>
+                Total Metros Cuadrados
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAlto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAncho)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalMetroCuadrado)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdMedParedes">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdMedParedes">Detalle</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdMedParedes">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

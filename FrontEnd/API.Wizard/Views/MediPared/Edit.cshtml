@@ -1,0 +1,53 @@
+﻿@model API.Wizard.Models.MediPared
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Medidas de la Pared</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdMedPared" />
+            <div class="form-group">
+                <label asp-for="Alto" class="control-label">Alto</label>
+                <input asp-for="Alto" class="form-control" />
+                <span asp-validation-for="Alto" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Ancho" class="control-label">Ancho</label>
+                <input asp-for="Ancho" class="form-control" />
+                <span asp-validation-for="Ancho" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="MetroCuadrado" class="control-label">Metro Cuadrado</label>
+                <input asp-for="MetroCuadrado" class="form-control" />
+                <span asp-validation-for="MetroCuadrado" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="IdMedParedes" class="control-label">ID Paredes</label>
+                <select asp-for="IdMedParedes" class="form-control" asp-items="ViewBag.IdMedParedes"></select>
+                <span asp-validation-for="IdMedParedes" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Volver a la Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

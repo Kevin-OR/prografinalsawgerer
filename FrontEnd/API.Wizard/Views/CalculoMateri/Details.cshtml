@@ -1,0 +1,42 @@
+﻿@model API.Wizard.Models.CalculoMateri
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalle</h1>
+
+<div>
+    <h4>Cálculo de Materiales</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nombre Cálculo
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdCalculoNavigation.NombreCalculo)
+        </dd>
+        <dt class="col-sm-2">
+            Material
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdMaterialNavigation.NombreMaterial)
+        </dd>
+        <dt class="col-sm-2">
+            ID Paredes
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdMedParedesNavigation.IdMedParedes)
+        </dd>
+        <dt class="col-sm-2">
+            Total Cálculo
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalCalculo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdCalMateri">Editar</a> |
+    <a asp-action="Index">Volver a la Lista</a>
+</div>

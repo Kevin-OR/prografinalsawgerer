@@ -1,0 +1,39 @@
+﻿@model API.Wizard.Models.Canton
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear Nuevo</h1>
+
+<h4>Listado de Cantones</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CodigoProvincia" class="control-label">Código Provincia</label>
+                <select asp-for="CodigoProvincia" class="form-control" asp-items="ViewBag.CodigoProvincia"></select>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="NombreCanton" class="control-label">Nombre de Cantón</label>
+                <input asp-for="NombreCanton" class="form-control" />
+                <span asp-validation-for="NombreCanton" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Volver a la Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

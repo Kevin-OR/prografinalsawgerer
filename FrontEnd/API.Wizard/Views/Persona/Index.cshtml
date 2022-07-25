@@ -1,0 +1,60 @@
+﻿@model IEnumerable<API.Wizard.Models.Persona>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Listado de personas</h1>
+
+<p>
+    <a asp-action="Create">Crear Nueva</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Cédula
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                Primer Apellido
+            </th>
+            <th>
+                Segundo Apellido
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeguApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPer">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdPer">Detalle</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPer">Eliminar</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

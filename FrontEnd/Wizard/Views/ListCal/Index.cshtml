@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Wizard.Models.ListCal>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCalculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdClieNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPerNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCalculo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClieNavigation.Correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPerNavigation.Clave)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCalculo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdCalculo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCalculo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,47 @@
+﻿@model API.Wizard.Models.MediParedes
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Medidas de Paredes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdMedParedes" />
+            <div class="form-group">
+                <label asp-for="TotalAlto" class="control-label">Total Alto</label>
+                <input asp-for="TotalAlto" class="form-control" />
+                <span asp-validation-for="TotalAlto" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="TotalAncho" class="control-label">Total Ancho</label>
+                <input asp-for="TotalAncho" class="form-control" />
+                <span asp-validation-for="TotalAncho" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="TotalMetroCuadrado" class="control-label">Total Metros Cuadrados</label>
+                <input asp-for="TotalMetroCuadrado" class="form-control" />
+                <span asp-validation-for="TotalMetroCuadrado" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Volver a la Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

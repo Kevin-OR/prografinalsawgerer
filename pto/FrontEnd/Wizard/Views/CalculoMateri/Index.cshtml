@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Wizard.Models.CalculoMateri>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCalculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCalculoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMaterialNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMedParedesNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCalculo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCalculoNavigation.NombreCalculo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMaterialNavigation.NombreMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMedParedesNavigation.IdMedParedes)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCalMateri">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdCalMateri">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCalMateri">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
